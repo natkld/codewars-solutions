@@ -1,0 +1,12 @@
+Yor task is to write function factorial:
+
+CODE :
+function factorial(n){
+  let total = 1;
+  let x = 1;
+  while (x <= n) {
+     total *= x;
+      x++;
+  }
+   return total;
+}
