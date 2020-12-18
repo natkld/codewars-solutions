@@ -9,11 +9,11 @@ for (let i = 2; max = Math.sqrt(n), i <= max; i++){
   return n;
 }
 
-CODE 2:(needs to check again)
-function isPrime(n) { 
- if (n < 2) return false;
-for (let i = 2; i <= n; i++) {
-  if (n === 2 || n === 3 || Math.pow(n, 2) % 24 === 1) return true;
-  else return false;
-}
-}
+//CODE 2:(needs to check again)
+//function isPrime(n) { 
+// if (n < 2) return false;
+//for (let i = 2; i <= n; i++) {
+//  if (n === 2 || n === 3 || Math.pow(n, 2) % 24 === 1) return true;
+// else return false;
+//}
+//}
