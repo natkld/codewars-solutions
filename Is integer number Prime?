@@ -1,6 +1,15 @@
 Find Prime number between integer numbers.
 
-CODE 1:
+CODE 1;
+function isPrime(n) {
+ if (n < 2) return 2;
+for (let i = 2; max = Math.sqrt(n), i <= max; i++){
+  if (n % i === 0) {return false;}
+}
+  return n;
+}
+
+CODE 2:(needs to check again)
 function isPrime(n) { 
  if (n < 2) return false;
 for (let i = 2; i <= n; i++) {
