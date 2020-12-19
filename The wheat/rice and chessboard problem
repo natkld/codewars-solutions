@@ -70,3 +70,13 @@ const squaresNeeded = grains =>
   
 CODE 8:
 squaresNeeded = a => a? Math.round(Math.log2(a)+0.5) : 0
+
+CODE 9:
+function squaresNeeded(grains){
+  let count = 0;
+  while (grains >= 1){
+    count += 1;
+    grains = grains / 2;
+  }
+  return count;
+}
