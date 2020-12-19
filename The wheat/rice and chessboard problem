@@ -1,0 +1,72 @@
+ A young man asks as a compensation only: 
+ 1 grain of rice for the first square, 
+ 2 grains for the second, 
+ 4 for the third, 
+ 8 for the fourth and so on, always doubling the previous.
+Your task is pretty straightforward (but not necessarily easy): given an amount of grains, you need to return up to which square of the chessboard one should count in order to get at least as many.
+As usual, a few examples might be way better than thousands of words from me:
+squaresNeeded(0) === 0; 
+squaresNeeded(1) === 1; 
+squaresNeeded(2) === 2; 
+squaresNeeded(3) === 2; 
+squaresNeeded(4) === 3
+Input is always going to be valid/reasonable.
+
+CODE1:
+function squaresNeeded(grains) {
+var sum = 0;
+for (var i = 0; i <= 64; i++) {
+ sum = sum + Math.pow(2, i - 1)
+ if (sum > grains) break;
+}
+ return i;
+}
+
+CODE 2:
+function squaresNeeded(grains){
+  if(grains <= 2){ return grains;}
+  if(grains > 2) {
+    let i = 0;
+      while(2**i <= grains){
+        i++;
+      }
+    return i;
+  }  
+}
+
+CODE 3:
+function squaresNeeded(grains){
+let x = 1;
+let square = 0;
+let sum = 0;
+while ( sum < grains ){
+ square++;
+ sum += x;
+ x *= 2;
+}
+return square;
+}
+
+CODE 4:
+function squaresNeeded(grains){
+  squares = 0;
+    while (2**squares <= grains){
+        squares += 1;
+    }
+    return squares;
+}
+
+CODE 5:
+function squaresNeeded(grains){
+  return Math.ceil(Math.log2(grains+1))
+}
+
+CODE 6:
+squaresNeeded = g => g? g.toString(2).length : 0
+
+CODE 7:
+const squaresNeeded = grains =>
+  !grains ? 0: grains.toString(2).length;
+  
+CODE 8:
+squaresNeeded = a => a? Math.round(Math.log2(a)+0.5) : 0
