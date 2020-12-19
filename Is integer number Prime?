@@ -1,28 +1,33 @@
 Find Prime number between integer numbers.
+Given the number n > 0. Determine whether the given number n is prime.
+A number is called prime if it is divided only by 1 and by itself (i.e. the number of divisors of the number is 2). For example, numbers 2, 3, 5, 5, 7, 11, 13, 17, 19 are prime. 
+The number 1 is neither prime nor composite.
+Write a function named isPrime that takes the number n and returns true if the number is prime and false otherwise.
 
-CODE 1;
+Дано число n > 0. Определите, является ли данное число n простым.
+Число называется простым, если оно делится только на 1 и на самого себя (т.е. число делителей числа равно 2). Например, числа 2, 3, 5, 5, 7, 11, 13, 17, 19 – простые. 
+Число 1 не является ни простым, ни составным.
+Напишите функцию с именем isPrime, которая принимает число n и возвращает true, если число простое, и false - в противном случае.
+
+CODE 1:
 function isPrime(n) {
- if (n < 2) return 2;
-for (let i = 2; max = Math.sqrt(n), i <= max; i++){
-  if (n % i === 0) {return false;}
+if (n < 2) return false;
+for (let i = 2; i < n; i++){
+  if (n % i === 0) return false;
 }
-  return n;
+  return true;
 }
 
 CODE 2:
 function isPrime(n) {
-  if (n <= 1) return false;
-  for (let i = 2; i < n; i++){
-    if (n % i === 0) return false;
-  }
+if (n <= 1) return false;
+for (let i = 2; i < n; i++){
+  if (n % i === 0) return false;
+}
   return true;
 }
 
-//CODE 2:(needs to check again)
-//function isPrime(n) { 
-// if (n < 2) return false;
-//for (let i = 2; i <= n; i++) {
-//  if (n === 2 || n === 3 || Math.pow(n, 2) % 24 === 1) return true;
-// else return false;
-//}
-//}
+console.log(isPrime(1))  // false;
+console.log(isPrime(2))  // true;
+console.log(isPrime(29)) // true;
+console.log(isPrime(30)) // false.
