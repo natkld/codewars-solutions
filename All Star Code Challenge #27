@@ -1,0 +1,54 @@
+Create a function called factorial() that takes an integer argument and returns the factorial.
+For example, inputting 5 should calculate 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+factorial(5) // => 120
+factorial(8) // => 40320
+Note: By definition, zero factorial, 0!, equals 1
+
+Создайте функцию с именем factorial (), которая принимает целочисленный аргумент и возвращает факториал.
+Например, при вводе 5 следует вычислить 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+факториал (5)//=> 120
+факториал (8)//=> 40320
+Примечание: По определению, нулевой факториал, 0!, равен 1
+
+CODE 1:
+function factorial(x){
+  let mult = 1
+for (let i = 1; i <= x; i++){
+  mult *= i
+}
+  return mult
+}
+console.log(factorial(5))  // 120
+console.log(factorial(8))  // 40320
+
+CODE 2:
+function factorial(x){
+return x==0 ? 1 : x * factorial(x-1)
+}
+
+CODE 3:
+function factorial(x){
+if(x == 0){
+return 1;
+}
+else{
+return x * factorial(x-1);
+}
+}
+
+CODE 4:
+factorial = x => x < 2 ? 1 : x * factorial(x - 1);
+
+CODE 5:
+function factorial(x){
+  if (x === 0 || x === []) return 1;
+  return [...Array(x+1).keys()].splice(1).reduce((a,b) => a*b);
+}
+
+CODE 6:
+function factorial(x){
+  if (x === 0) return 1
+  return factorial(x - 1) * x 
+}
