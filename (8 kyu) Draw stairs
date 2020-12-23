@@ -1,0 +1,99 @@
+Given a number n, draw stairs using the letter "I", n tall and n wide, with the tallest in the top left.
+For example n = 3 result in:
+
+"I\n I\n  I"
+or printed:
+
+I
+ I
+  I
+Another example, a 7-step stairs should be drawn like this:
+
+I
+ I
+  I
+   I
+    I
+     I
+      I
+
+Учитывая число n, нарисуйте лестницу, используя букву "I", n высокий и n широкий, с самой высокой в верхнем левом углу.
+Например, n = 3 приводит к:
+
+"I\n I\n I"
+или напечатано:
+
+I
+ I
+  I
+Другой пример, 7-ступенчатая лестница должна быть нарисована следующим образом:
+
+I
+ I
+  I
+   I
+    I
+     I
+      I
+      
+CODE 1:
+function drawStairs(n) {
+  let text = ''
+  for (let i = 0; i < n; i++) {
+    if (i < n - 1) text += ' '.repeat(i) + 'I\n'
+    else  text += ' '.repeat(i) + 'I' 
+   }
+     return(text)
+}
+
+CODE 2:
+const drawStairs = n => [...Array(n)].map((_, i) => " ".repeat(i) + "I").join("\n");
+
+CODE 3:
+function drawStairs(n) {
+  let result = [];
+  
+  for (let i = 0; i < n; i++) {
+    result[i] = `${' '.repeat(i)}I`;
+  }
+  
+  return result.join('\n');
+}
+
+CODE 3:
+function drawStairs(n) {
+
+let step = "I"
+for(let i=1; i<n;  i++) {
+ step +="\n" + " ".repeat(i) + 'I' ;
+}return step 
+}
+
+CODE 4:
+function drawStairs(n) {
+  return Array(n).fill("I").map((e,i)=>e.padStart(i+1," ")).join("\n")
+}
+
+CODE 5:
+function drawStairs(n) {
+let res = '', i = 1, p = ' ';
+  while(i < n) {
+    res += 'I\n' + p
+    i++; p += ' ';
+  }
+  return res + 'I';
+}
+
+CODE 6:
+function drawStairs(n) {
+  let str = '';
+
+  if (n > 1) {
+    for (let i = 0; i < n; i++) {
+      str += ' '.repeat(i) + 'I\n';
+    }
+    return str.trim();
+  } else {
+    return 'I';
+  }
+}
