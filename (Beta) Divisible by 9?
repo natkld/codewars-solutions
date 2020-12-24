@@ -1,0 +1,80 @@
+Given a non-negative integer number represented as a string, which can be arbitrary large. Detect whether it is divisible by 9?
+e.g
+
+0 -> true  
+7 -> false  
+9 -> true  
+18 -> true  
+19 -> false  
+777777777777777777777777777777777777777777777 -> true
+Tips:
+
+All input strings in the tests are valid non-negative integer numbers, you don't have to check that.
+You'd better not use the arbitrary-precision data types from chosen programming languages, if any, to keep the kata fun :)
+For Java, avoid BigInteger or BigDecimal.
+For Javascript, avoid BigInt.
+For Python3, since int has unbounded range, so avoid converting the whole input as a single int directly.
+etc ..
+
+Учитывая неотрицательное целое число, представленное в виде строки, которое может быть произвольным большим. Определить, делится ли оно на 9?
+
+например,
+
+0 - > истина
+7 - > ложь
+9 - > истина
+18 - > верно
+19 - > ложь
+777777777777777777777777777777777777777777777 - > истина
+Совет:
+
+Все входные строки в тестах являются действительными неотрицательными целыми числами, это не обязательно проверять.
+Лучше не использовать типы данных произвольной точности из выбранных языков программирования, если таковые имеются, чтобы сохранить ката весело:)
+Для Java избегайте BigInteger или BigDecimal.
+Для Javascript избегайте BigInt.
+Для Python3, так как int имеет неограниченный диапазон, так что избегайте преобразования всего ввода как одного int напрямую.
+и т.д.
+
+function divBy9(ns){
+  let sum = 0;  
+  for(let i = 0; i < ns.length; i ++) {      
+    sum += +ns[i];     
+  }  
+   return sum % 9 === 0;
+}
+console.log(divBy9("0")  // true;
+console.log(divBy9("7")  // false;
+console.log(divBy9("9")  // true;
+console,log(divBy9("777777777777777777777777777777777777777777777") // true;
+
+CODE 2:
+function divBy9 (wtF){
+  return [...wtF].map(Number).reduce((a,b)=> a+b,0) % 9 === 0
+}
+
+CODE 3:
+const divBy9 = (number) => {  
+  const sumOfDigits = number
+    .split('')
+    .map((digit) => parseInt(digit, 10))
+    .reduce((acc, i) => acc + i, 0);
+    
+  return sumOfDigits % 9 === 0;
+  
+  CODE 4:
+  function divBy9(ns){
+  let sum = 0;
+  for (let i = 0; i < ns.length; i++)
+    sum += parseInt(ns[i]);
+  return sum%9 == 0;
+}
+
+CODE 5:
+divBy9=n=>[...n].reduce((a,b)=>+b+a,0)%9==0
+
+CODE 6:
+function divBy9(ns){
+  let str = ns.split('').reduce((a, b) => +a + +b);
+  return str % 9 === 0;
+}
+}
