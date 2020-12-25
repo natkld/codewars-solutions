@@ -20,3 +20,38 @@ function numberToPower(number, power){
 console.log(numberToPower(4, 2)  // 16;
 console.log(numberToPower(10, 4) // 10000;
 console.log(numberToPower(10, 0) // 1;
+
+CODE 2:
+function numberToPower(number, power){
+  var total = 1;
+  for (var i = 1; i <= power; i++) { 
+    total = total * number;
+  }
+  return total;
+}
+
+CODE 3:
+const numberToPower = (number,power) => power > 0 ? number * numberToPower(number,power-1) : 1;
+
+CODE 4:
+function numberToPower(number, power){
+  if (power === 0) return 1;
+  return number * numberToPower(number, power - 1)
+}
+
+CODE 5:
+function numberToPower(number, power){
+  return Array(power).fill(number).reduce((res, n) => res * n, 1);
+}
+
+CODE 6:
+function numberToPower(number, power) {
+  return vm.runInThisContext(number + '*' + '*' + power);
+}
+
+CODE 7:
+const numberToPower = (n, p) => {
+  let result = 1;
+  for (let i = 0; i < p; i++) result *= n;
+  return result; 
+}
