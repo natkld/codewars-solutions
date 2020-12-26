@@ -1,0 +1,47 @@
+Task
+Given a positive integer n, calculate the following sum:
+n + n/2 + n/4 + n/8 + ...
+All elements of the sum are the results of integer division.
+Example
+25  =>  25 + 12 + 6 + 3 + 1 = 47
+
+CODE 1:
+function halvingSum(n) {
+  let sum = 0
+  do {
+    sum += n
+    n = Math.floor(n / 2)
+  } while (n >= 1)
+  return sum
+}
+consol.log(halvingSum(25))  // 47;
+console.log(halvingSum(127)) //247;
+
+CODE 2:
+function halvingSum(n) {
+  var sum = 0;
+  while(n > 0) {
+    sum += n;
+    n = Math.floor(n / 2);
+  }
+  return sum;
+}
+
+CODE 3:
+function halvingSum(n) {
+    if(n === 1) return n;
+    return n + halvingSum(Math.floor(n/2));
+}
+
+CODE 4:
+const halvingSum = n => n > 1 ? n + halvingSum(n / 2 | 0) : n
+
+CODE 5:
+function halvingSum(n) {
+  return n*2-eval([...n.toString(2)].join`+`)
+}
+
+CODE 6:
+function halvingSum(n) {
+  return n * 2 - n.toString(2).match(/1/g).length;
+}
