@@ -1,0 +1,86 @@
+Everybody has probably heard of the animal heads and legs problem from the earlier years at school. It goes:
+“A farm contains chickens and cows. There are x heads and y legs. How many chickens and cows are there?”
+Where x <= 1000 and y <=1000
+#Task
+Assuming there are no other types of animals, work out how many of each animal are there.
+Return a tuple in Python - (chickens, cows) and an array list - [chickens, cows]/{chickens, cows} in all other languages
+If either the heads & legs is negative, the result of your calculation is negative or the calculation is a float return "No solutions" (no valid cases).
+In the form:
+[Heads, Legs] = [72, 200]
+VALID - [72, 200] =>             [44 , 28]   
+                             [Chickens, Cows]
+INVALID - [72, 201] => "No solutions"
+However, if 0 heads and 0 legs are given always return [0, 0] since zero heads must give zero animals.
+There are many different ways to solve this, but they all give the same answer.
+You will only be given integers types - however negative values (edge cases) will be given.
+Happy coding!
+
+Все наверняка слышали о проблемах с головами и ногами животных с ранних лет в школе. Идет:
+"Ферма содержит кур и коров. Есть x голов и y ног. Сколько там кур и коров?
+Где x < = 1000 и y < = 1000
+#Task
+Предполагая, что других типов животных нет, выясните, сколько там каждого животного.
+Верните кортеж на Python - (куры, коровы) и список массива - [куры, коровы ]/{ куры, коровы} на всех других языках
+Если головы и ноги отрицательны, результат расчета отрицателен или расчет представляет собой возврат с плавающей запятой "No solutions" (без допустимых вариантов).
+В форме:
+[Головы, ноги] = [72, 200]
+ДЕЙСТВИТЕЛЬНО - [72, 200] = > [44, 28]
+[Куры, коровы]
+INVALID - [72, 201] = > "Нет решений"
+Однако, если 0 голов и 0 ног всегда даются возвращение [0, 0], так как нулевые головы должны дать нулевых животных.
+Есть много разных способов решить это, но все они дают один и тот же ответ.
+Вам будут даны только целые типы - однако будут даны отрицательные значения (краевые случаи).
+Счастливое кодирование!
+
+CODE 1:
+function animals(heads, legs){
+  let x = 2;
+  let y = 4;
+  let cows = (legs - (heads * x)) / x;
+  let chickens = heads - cows;
+  if (Number.isInteger(chickens) === false || Number.isInteger(cows) === false) return "No solutions"
+  else if ( chickens < 0 || cows < 0 ) return "No solutions"
+  return ([chickens, cows])
+}
+
+console.log(animals(72, 200))   // [44, 28]
+console.log(animals(116, 282))  // [91, 25]
+console.logr(animals(12, 24))   // [12, 0]
+console.log(animals(6, 24))     // [0, 6]
+console.logr(animals(344, 872)) // [252, 92]
+console.log(animals(158, 616))  // [8, 150]
+console.log(animals(25, 555))   // "No solutions"
+console.log(animals(12, 25))    // "No solutions"
+console.log(animals(54, 956))   // "No solutions"
+console.log(animals(5455, 54956) // "No solutions"
+console.log(animals(0, 0))      // [0, 0])
+console.log(animals(-1, -1))    // "No solutions"
+console.log(animals(-45, 5))    // "No solutions"
+console.log(animals(500, 0))    // "No solutions"
+console.log(animals(0, 500))    // "No solutions"
+console.log(animals(5, -55))    // "No solutions"
+
+CODE 2:
+function animals(heads, legs){
+  if(heads<0 || legs<0 || legs<2*heads || legs>4*heads || legs%2)return "No solutions";
+  
+  let cows = (legs-2*heads) / 2;
+  return [heads-cows, cows]
+}
+
+CODE 3:
+const animals=(h, l)=>(cows=>cows%1 || cows>h || cows<0 ? "No solutions" : [h-cows,cows])((l-2*h)/2);
+
+CODE 4:
+function animals(heads, legs){
+  return Math.min(heads * 2 - legs / 2, legs / 2 - heads) >= 0 && legs % 2 == 0 ? [heads * 2 - legs / 2, legs / 2 - heads] : "No solutions"
+}
+
+CODE 5:
+const animals = (h, l) => Number.isInteger(l/2) && 2*h-l/2 > -1 && l/2-h > -1 ? [2*h-l/2, l/2-h] : "No solutions";
+
+CODE 6:
+function animals(heads, legs){
+  var cows = legs%2 ? -1 : legs/2-heads;
+  return heads>=cows && cows>=0 ? [heads-cows, cows] : "No solutions";
+}
