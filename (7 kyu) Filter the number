@@ -1,0 +1,59 @@
+Oh no! The number has been mixed up with the text. Your goal is to retreive the number from the text, can you return the number back to it's original state?
+Task
+Your task is to return a number from a string.
+Details
+You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
+
+О нет! Номер был перепутан с текстом. Ваша цель - извлечь номер из текста, можете ли вы вернуть номер в исходное состояние?
+Задача
+Задача - вернуть число из строки.
+Подробнее
+Вам будет предоставлена строка чисел и букв, вы должны вернуть все числа в этой строке в порядке их следования.
+
+console.log(FilterString("123"))   //123;
+console.log(FilterString("a1b2c3"))  //123;
+console.log(FilterString("aa1bb2cc3dd")) // 123;
+
+CODE 1:
+var FilterString = function(value) {
+  let str = ''
+  for (let i = 0; i < value.length; i++){
+    if (!isNaN(value[i])) str+=value[i]
+  }
+    return +str
+}
+
+CODE 2:
+var FilterString = function(value) {
+  return parseInt(value.replace(/[^\d]/g, ""))
+}
+
+CODE 3:
+const FilterString = value => +value.replace(/\D/g, '');
+
+CODE 4:
+const FilterString = v => Number(v.replace(/\D/g, ''));
+
+CODE 5:
+var FilterString = function(value) {
+  return +value.split('').filter(n => !isNaN(n)).join('');
+}
+
+CODE 6:
+var FilterString = function(value) {
+  var result = "";
+  for(var i = 0; i < value.length; i++){
+    if(!isNaN(value[i]))
+      result += value[i];
+  }
+  return parseInt(result);
+}
+
+CODE 7:
+var FilterString = function(value) {
+  return parseInt(value.split("").filter(function(c) { return c >= '0' && c <= '9'; }).join(""));
+}
+
+CODE8:
+with(require('ramda'))
+var FilterString = pipe(replace(/\D/g, ''), Number)
