@@ -8,6 +8,15 @@ var x = что-то;
 x = = = x//возвращает значение false!
 Запишите функцию, которая вернет значение, для которого строгое сравнение даст значение false!
 
+CODE 1:
 function findStrangeValue() {
    return "circle" / 2;
 }
+
+CODE 2:
+function findStrangeValue() {
+  return NaN;
+}
+
+CODE 3:
+const findStrangeValue = () => NaN;
