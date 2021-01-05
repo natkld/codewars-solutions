@@ -1,0 +1,40 @@
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+
+CODE 1:
+function invert(array) {
+  for(let i = 0; i < array.length; i++){
+        array[i] = -array[i]; 
+}
+  return array
+}
+
+    Test.assertDeepEquals(invert([1,2,3,4,5]), [-1,-2,-3,-4,-5]);
+    Test.assertDeepEquals(invert([1,-2,3,-4,5]), [-1,2,-3,4,-5]);
+    Test.assertDeepEquals(invert([]), []);
+    Test.assertDeepEquals(invert([0]), [0]);
+
+CODE 2:
+function invert(array) {
+   return array.map( x => x === 0 ? x : -x);
+}
+
+CODE 3:
+function invert(array) {
+   return array.map(i => 0 - i);
+}
+
+CODE 4:
+function invert(array) {
+  var newArr = [];
+  for(var i = 0; i < array.length; i++){
+    newArr.push(-array[i]);
+  }
+   return newArr;
+}
+
+CODE 5:
+const invert = a => a.map(x=>x!==0?-x:x)
