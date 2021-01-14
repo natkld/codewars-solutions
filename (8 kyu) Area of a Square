@@ -1,0 +1,41 @@
+Complete the function that calculates the area of the red square, when the length of the circular arc A is given as the input. Return the result rounded to two decimals.
+Graph
+Note: use the π value provided in your language (Math::PI, M_PI, math.pi, etc)
+
+Выполните функцию, которая вычисляет площадь красного квадрата, когда длина дуги окружности A задается в качестве входного значения. Возвращает результат, округленный до двух десятичных знаков.
+График
+Примечание: используйте значение, предоставленное в вашем языке (Math:: PI, M_PI, math.pi и т.д.)
+
+CODE 1:
+function squareArea(A){
+  let R = 2 * A / Math.PI;
+  let S = (Math.pow(R, 2)).toFixed(2);
+  return Number(S);
+}
+Test.assertEquals(squareArea(2), 1.62);
+Test.assertEquals(squareArea(0), 0);
+Test.assertEquals(squareArea(14.05), 80);
+
+CODE 2:
+squareArea = A => +Math.pow((2 * A / 3.1416), 2).toFixed(2);
+
+CODE 3:
+function squareArea(A){
+  let circum = 4 * A;
+  let radius = circum / (2 * Math.PI);
+  let area = Math.pow(radius, 2);
+  return Math.round(area*100)/100
+}
+
+CODE 4:
+function squareArea(A){
+  return Math.round(Math.pow(A*2/Math.PI,2) * 100) /100
+}
+
+CODE 5:
+function squareArea(A) {
+    return +Math.pow((4 * A) / (Math.PI * 2), 2).toFixed(2);
+}
+
+CODE 6:
+const squareArea = A => Math.round(Math.pow((2*A/Math.PI),2)*100)/100
