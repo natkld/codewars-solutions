@@ -1,0 +1,64 @@
+As a treat, I'll let you read part of the script from a classic 'I'm Alan Partridge episode:
+
+Lynn: Alan, there’s that teacher chap.
+Alan: Michael, if he hits me, will you hit him first?
+Michael: No, he’s a customer. I cannot hit customers. I’ve been told. I’ll go and get some stock.
+Alan: Yeah, chicken stock.
+Phil: Hello Alan.
+Alan: Lynn, hand me an apple pie. And remove yourself from the theatre of conflict.
+Lynn: What do you mean?
+Alan: Go and stand by the yakults. The temperature inside this apple turnover is 1,000 degrees. If I squeeze it, a jet of molten Bramley apple is going to squirt out. Could go your way, could go mine. Either way, one of us is going down.
+Alan is known for referring to the temperature of the apple turnover as 'Hotter than the sun!'. According to space.com the temperature of the sun's corona is 2,000,000 degrees C, but we will ignore the science for now.
+
+Your job is simple, if (x) squared is more than 1000, return 'It's hotter than the sun!!', else, return 'Help yourself to a honeycomb Yorkie for the glovebox.'.
+X will be either a number or a string. Both are valid.
+Other katas in this series:
+
+Alan Partridge I - Partridge Watch
+Alan Partridge III - London
+
+Как лакомство, я позволю вам прочитать часть сценария из классического эпизода "Я - Алан Партридж:
+
+Алан, вон тот учитель.
+Майкл, если он ударит меня, ты ударишь его первым?
+Нет, он клиент. Я не могу ударить клиентов. Мне сказали. Я пойду и принесу немного.
+Да, цыпленок.
+Привет Алан.
+Линн, дай мне яблочный пирог. И убрать себя из театра конфликтов.
+Что значит "Линн"?
+Идите и стойте рядом с якульцами. Температура внутри этого яблочного оборота составляет 1000 градусов. Если я его выжму, струя расплавленного яблока Брамли вылезет наружу. Мог бы пойти своим путем, мог бы и моим. В любом случае, один из нас спускается.
+Алан известен тем, что относит температуру оборота яблок к 'Горячее солнца!'. Согласно space.com температура солнечной короны составляет 2 000 000 градусов Цельсия, но пока мы будем игнорировать науку.
+
+Ваша работа проста, если (x) квадрат больше 1000, вернуть 'Это жарче солнца!!', в противном случае, вернуть 'Помогите себе соты Yorkie для glovebox.'.
+X будет числом или строкой. Оба действительны.
+Другие каты в этой серии:
+
+Алан Партридж I - Часы Партридж
+Алан Партридж III - Лондон
+
+Test.assertEquals(apple('50'), 'It\'s hotter than the sun!!'); 
+Test.assertEquals(apple(4), 'Help yourself to a honeycomb Yorkie for the glovebox.');
+
+CODE 1:
+function apple(x){
+  if (x**2 > 1000)
+    return  'It\'s hotter than the sun!!';
+  else return  'Help yourself to a honeycomb Yorkie for the glovebox.';
+}
+
+CODE 2:
+function apple(x){
+  if (Math.pow(x,2) > 1000) {
+    return "It's hotter than the sun!!";
+  } else {
+    return "Help yourself to a honeycomb Yorkie for the glovebox.";
+  }
+}
+
+CODE 3:
+function apple(x){
+  return Math.pow(x, 2) > 1000 ? 'It\'s hotter than the sun!!' : 'Help yourself to a honeycomb Yorkie for the glovebox.' ;
+}
+
+CODE 4:
+apple=x=>x*x>1000?"It's hotter than the sun!!":"Help yourself to a honeycomb Yorkie for the glovebox."
