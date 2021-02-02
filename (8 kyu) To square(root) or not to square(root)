@@ -22,4 +22,68 @@ I have also created other katas. Take a look if you enjoyed this kata!
 Наслаждайтесь кодированием и, пожалуйста, не забудьте проголосовать и ранжировать эту ката!: -)
 Я также создал другие каты. Взгляните, если вам понравилась эта ката!
 
+TEST:
+describe("Solution", function(){
+  it("basic tests", function(){
+    var input = [ 4, 3, 9, 7, 2, 1 ];
+    var expected = [ 2, 9, 3, 49, 4, 1 ];
+    Test.assertSimilar(squareOrSquareRoot(input), expected);
+    
+    input = [ 100, 101, 5, 5, 1, 1 ];
+    expected = [ 10, 10201, 25, 25, 1, 1 ];
+    Test.assertSimilar(squareOrSquareRoot(input), expected);
+    
+    input = [ 1, 2, 3, 4, 5, 6 ];
+    expected = [ 1, 4, 9, 2, 25, 36 ];
+    Test.assertSimilar(squareOrSquareRoot(input), expected);
+  });
+});
+
 CODE 1:
+function squareOrSquareRoot(array) {
+ // console.log(array)
+  let arr = []
+  for (let i = 0; i < array.length; i++){
+    if (Math.sqrt(array[i]) % 1 === 0) {
+      array[i] = Math.sqrt(array[i])
+      arr.push(array[i])
+    } else {
+        arr.push(Math.pow(array[i], 2))
+    }
+  }
+  return arr
+}  
+
+CODE 2:
+function squareOrSquareRoot(array) {
+  return array.map(x => {
+    const r = Math.sqrt(x);
+    return (r % 1 == 0) ? r : (x*x);
+  });  
+}
+
+CODE 3:
+const squareOrSquareRoot = array => array.map(a => Math.sqrt(a) % 1 == 0 ? Math.sqrt(a) : (a * a));
+
+CODE 4:
+function squareOrSquareRoot(array) {
+  return array.map(x => {
+    const n = Math.sqrt(x)
+    return Number.isInteger(n) ? n : x * x
+  })
+}
+
+CODE 5:
+function squareOrSquareRoot(array) {
+  return array.map(e => Number.isInteger(Math.sqrt(e)) ? Math.sqrt(e) : e*e);  
+}
+
+CODE 6:
+function squareOrSquareRoot(array) {
+  return array.map(x => isSquare(x) ? Math.sqrt(x) : x*x);  
+}
+
+function isSquare(n) {
+  return Math.sqrt(n) % 1 === 0;
+}
+
