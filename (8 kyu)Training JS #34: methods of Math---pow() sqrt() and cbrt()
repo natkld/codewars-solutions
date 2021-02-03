@@ -1,0 +1,45 @@
+CODE 1:
+function cutCube(volume,n){
+  let a = Math.cbrt(n)
+  let b = Math.cbrt(volume)
+  return (a % 1 === 0) && (b % 1 === 0) && ((b/a) % 1 === 0 )
+}
+
+CODE 2:
+function cutCube(volume,n){
+  return !(Math.cbrt(n) % 1) && !(Math.cbrt(volume / n) % 1);
+}
+
+CODE 3:
+function isIntCube(n) {
+  return Number.isInteger(Math.cbrt(n));
+}
+
+function cutCube(volume, n) {
+  return isIntCube(n) && isIntCube(volume / n);
+}
+
+CODE 4:
+function cutCube(volume,n){
+    return [volume/n, n].map(Math.cbrt).every(x=> x==~~x)
+}
+
+CODE 5:
+function cutCube(volume, n){
+  const isCube = n => Math.pow(Math.round(Math.pow(n, 1/3)), 3) == n
+  return isCube(n) && isCube(volume / n);
+}
+
+CODE 6:
+function cutCube(volume,n){
+  let a = Math.cbrt(volume / n)
+  let b = Math.cbrt(n)
+  if(a % 1 === 0 && b % 1 === 0){
+    return true
+  } else return false
+}
+
+CODE 7:
+function cutCube(volume,n){
+ return Math.cbrt(volume) % 1 == 0 && Math.cbrt(volume / n) %1 == 0;
+}
