@@ -1,0 +1,50 @@
+In this Kata , your job is to write a program that finds the sum of the numbers from 1 to n.
+e.g.
+total(10) => 55
+total(20) => 210
+total(34) => 595
+If you are unsure of what output you got, You can use console.log("Your output") to check
+{ My first Kata , So hope you like it }
+
+В этом Ката, ваша задача - написать программу, которая найдет сумму чисел от 1 до n.
+например.
+всего (10) = > 55
+всего (20) = > 210
+всего (34) = > 595
+Если вы не уверены, какой выход вы получили, вы можете использовать console.log («Ваш вывод»), чтобы проверить
+{Моя первая Ката, так что надеюсь, что вам это нравится}
+
+test:
+Test.assertEquals(total(10),55,'Remember to sum all values from 1 to n inclusive')
+Test.assertEquals(total(123),7626,'Remember to sum all values from 1 to n inclusive')
+Test.assertEquals(total(1000),500500,'Remember to sum all values from 1 to n inclusive')
+Test.assertEquals(total(54321),1475412681,'Remember to sum all values from 1 to n inclusive')
+
+
+CODE 1:
+function total(num){
+  let count = 0
+  for (let i = 1; i <= num; i++){
+     count += i
+  }
+  return count
+}
+
+CODE 2:
+function total(num){
+   return (num * (num+1)) / 2;
+}
+
+CODE 3:
+total = n => (1 + n) / 2 * n;
+
+CODE 4:
+const total = n => {
+let sum = 0;
+for (let i = 1; i <= n; i++) {
+ sum += i;
+ }
+ return sum;
+}
+ CODE 5:
+ const total=n=>n/2*(n+1);
