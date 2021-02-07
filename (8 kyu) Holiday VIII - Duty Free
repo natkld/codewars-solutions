@@ -1,0 +1,28 @@
+The purpose of this kata is to work out just how many bottles of duty free whiskey you would have to buy such that the saving over 
+the normal high street price would effectively cover the cost of your holiday.
+You will be given the high street price (normPrice), the duty free discount (discount) and the cost of the holiday.
+For example, if a bottle cost £10 normally and the discount in duty free was 10%, you would save £1 per bottle. 
+If your holiday cost £500, the answer you should return would be 500.
+All inputs will be integers. Please return an integer. Round down.
+
+Цель этой ката, чтобы выяснить, сколько бутылок беспошлинного виски вы должны были бы купить такие, что экономия более
+нормальная высокая цена улицы будет эффективно покрывать стоимость вашего отпуска.
+Вам дадут высокую уличную цену (normPrice), скидку duty free (скидку) и стоимость праздника.
+Например, если бутылка обычно стоит £10, а скидка в duty free составляет 10%, вы сэкономите £1 за бутылку.
+Если ваш отпуск стоит 500 фунтов, ответ, который вы должны вернуть, будет 500.
+Все входы будут целыми числами. Верните целое число. Округление вниз.
+
+Test.describe("Example tests",_=>{
+Test.assertEquals(dutyFree(12, 50, 1000), 166);
+Test.assertEquals(dutyFree(17, 10, 500), 294);
+Test.assertEquals(dutyFree(24, 35, 3000), 357);
+});
+
+CODE 1:
+function dutyFree(normPrice, discount, hol){
+  return Math.floor(hol / (normPrice * discount / 100))
+}
+
+
+CODE 2:
+function dutyFree(normPrice, discount, hol){return Math.floor(hol/(normPrice*(discount/100)))}
