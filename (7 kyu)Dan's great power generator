@@ -1,0 +1,43 @@
+Dan likes to find the nth power of number. But he doesn't like it when the result is odd!
+Return the nth power of each number, unless the result is odd, in which case round the result to the nearest 10.
+Eg. if number = 7, and power = 2, result = 50.
+
+Дэн любит находить n-ю степень числа. Но ему не нравится, когда результат странный!
+Возвращает n-ю степень каждого числа, если результат не является нечетным, и в этом случае округляет результат до ближайшего 10.
+Например, если число = 7, а мощность = 2, результат = 50.
+
+TEST:
+describe('Dan\s Power', function() {
+it ('should calculate the nth power of number, rounded to nearest 10 if not even', function() {
+Test.assertSimilar(danspower(5,0), 0);
+Test.assertSimilar(danspower(2,0), 0);
+Test.assertSimilar(danspower(8,1), 8);
+Test.assertSimilar(danspower(3,1), 0);
+Test.assertSimilar(danspower(7,2), 50);
+Test.assertSimilar(danspower(9,2), 80);
+Test.assertSimilar(danspower(4,2), 16);
+Test.assertSimilar(danspower(0,2), 0);
+Test.assertSimilar(danspower(5,2), 30);
+Test.assertSimilar(danspower(0,3), 0);
+Test.assertSimilar(danspower(5,3), 130);
+Test.assertSimilar(danspower(6,4), 1296);
+Test.assertSimilar(danspower(3,4), 80);
+Test.assertSimilar(danspower(6,9), 10077696);
+Test.assertSimilar(danspower(3,10), 59050);
+});
+
+});
+
+CODE 1:
+function danspower(num, power) {
+  return Math.pow(num, power) % 2 !== 0 ? Math.round(Math.pow(num, power) / 10) * 10 : Math.pow(num, power)
+}
+
+CODE 2:
+function danspower(num, power) {
+  let total = Math.pow(num, power);
+  return total % 2 !== 0 ? Math.round(total/10) * 10 : total ;
+}
+
+CODE 3:
+const danspower = (n, p) => n ** p % 2 ? Math.round(n ** p / 10) * 10 : n ** p;
