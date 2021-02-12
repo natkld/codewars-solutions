@@ -1,0 +1,154 @@
+The function takes cents value (int) and needs to return the minimum number of coins combination of the same value.
+The function should return an array where
+coins[0] = pennies ==> $00.01
+coins[1] = nickels ==> $00.05
+coins[2] = dimes ==> $00.10
+coins[3] = quarters ==> $00.25
+So for example:
+coinCombo(6) --> [1, 1, 0, 0]
+
+Функция принимает значение центов (int) и должна вернуть минимальное количество монет комбинации того же значения.
+Функция должна возвращать массив, где
+монеты [0] = пенни = = > $00,01
+монеты [1] = nickels = = > $00.05
+монеты [2] = dimes = = > $00.10
+монеты [3] = кварталы = = > $00,25
+Так, например:
+coinCombo (6) -- > [1, 1, 0, 0]
+
+TEST:
+Test.describe('coinCombo', function() {
+    it('takes 1 and returns, 1 Penny.', function() {
+        Test.assertSimilar(coinCombo(1), [1, 0, 0, 0]);
+    });
+    
+    it('takes 6 and returns, 1 Penny, 1 Nickle.', function() {
+        Test.assertSimilar(coinCombo(6), [1, 1, 0, 0]);
+    });
+
+    it('takes 11 and returns, 1 Dime, 1 Penny.', function() {
+        Test.assertSimilar(coinCombo(11), [1, 0, 1, 0]);
+    });
+});
+  
+CODE 1:
+var coinCombo = function(cents) {
+  arr = [1, 5, 10, 25];
+  result = [0, 0, 0, 0];
+  for (let i = cents; i > 0;) {
+    for (let j = arr.length; j >= 0; j--) {
+      if (arr[j] <= i) {
+        result[j] += 1;
+        i -= arr[j];  
+        break;
+      }
+    }
+  }
+  return result;
+} 
+
+CODE 2:
+var coinCombo = function(cents) {
+
+  var coins = [0, 0, 0, 0];
+
+  var quarters = parseInt(cents / 25);
+  coins[3] = quarters;
+  cents = cents % 25;
+
+  var dimes = parseInt(cents / 10);
+  coins[2] = dimes;
+  cents = cents % 10;
+
+  var nickles = parseInt(cents / 5);
+  coins[1] = nickles;
+  var cents = cents % 5;
+
+  coins[0] = cents;
+
+  return coins;
+
+};
+
+CODE 3:
+function coinCombo (cents, arr=[1,5,10,25], out=[0,0,0,0]) {
+  for (let i = 3; i >= 0; i--){
+    while(arr[i] <= cents){
+      out[i] += 1
+      cents -= arr[i]
+    }
+  }
+  return out
+}
+
+CODE 4:
+var coinCombo = c=> [c % 25 % 10 % 5, Math.floor(c % 25 % 10 / 5), Math.floor(c % 25 / 10), Math.floor(c / 25)];
+
+CODE 5:
+var coinCombo = function(cents) {
+  return [Math.floor(cents % 5), Math.floor(cents % 25 % 10 / 5), Math.floor(cents % 25 / 10),Math.floor(cents / 25)]
+}
+
+CODE 6:
+var coinCombo = function(cents) {
+  let pennies = 0, nickels = 0, dimes = 0, quarters = 0;
+
+  while (cents >= 25) {
+    cents -= 25;
+    quarters += 1;
+  };
+  while (cents >= 10) {
+    cents -= 10;
+    dimes += 1;
+  }
+  while (cents >= 5) {
+    cents -= 5;
+    nickels += 1
+  }
+  while (cents > 0) {
+    cents -= 1;
+    pennies += 1;
+  }
+  return [pennies, nickels, dimes, quarters]
+}
+
+CODE 7:
+var coinCombo = function(cents) {
+  let combo = [0, 0, 0, 0];
+
+  if(cents >= 25) {
+    combo[3] = Math.floor(cents / 25);
+
+    cents -= combo[3] * 25;
+  }
+
+  if(cents < 25) {
+    combo[2] = Math.floor(cents / 10);
+
+    cents -= combo[2] * 10;
+  }
+
+  if(cents <= 9) {
+    combo[1] = Math.floor(cents / 5);
+
+    cents -= combo[1] * 5;
+  }
+
+  if(cents < 5) {
+    combo[0] = Math.floor(cents);
+  }
+
+  return combo;
+}
+
+CODE 8:
+function coinCombo(cents) {
+    let coins = [1,5,10,25];
+    let combo = [0,0,0,0];
+    for (let i = 3; i >= 0; i--) {
+        combo[i] = Math.floor(cents / coins[i]);
+        cents -= combo[i] * coins[i];
+    }
+    return combo;
+}
+  
