@@ -1,0 +1,88 @@
+Story
+Ben has a very simple idea to make some profit: he buys something and sells it again. Of course,
+this wouldn't give him any profit at all if he was simply to buy and sell it at the same price. 
+Instead, he's going to buy it for the lowest possible price and sell it at the highest.
+Task
+Write a function that returns both the minimum and maximum number of the given list/array.
+
+Examples
+minMax([1,2,3,4,5])   == [1,5]
+minMax([2334454,5])   == [5, 2334454]
+minMax([1])           == [1, 1]
+Remarks
+All arrays or lists will always have at least one element, so you don't need to check the length. 
+Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
+
+function minMax(arr){
+  let p = [];
+  for (let i = 0; i < arr.length; i++){
+    p.push(Math.min(...arr)); 
+    p.push(Math.max(...arr)); 
+    break;
+  }
+  return (p);
+}
+
+Test:
+var test = function(arr, res){
+  Test.assertSimilar(minMax(arr), res, "tested on " + JSON.stringify(arr) + ":");
+};
+
+describe("minMax", function(){
+  it("should work for some examples", function(){
+    var i, r;
+    test([1,2,3,4,5], [1,5]);
+    test([2334454,5], [5, 2334454]);
+    
+    for(i = 0; i < 20; ++i){
+      r = Math.random();
+      test([r], [r,r]);
+    }   
+  });
+});
+
+
+Code 2:
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+Code 3:
+function minMax(arr){
+  return [Math.min.apply(Math, arr), Math.max.apply(Math, arr)];
+}
+
+Code 4:
+function minMax(arr) {
+    var a = arr.sort(function(a,b) {return a-b});
+    return [a[0], a[a.length-1]];
+  }
+  
+Code 5:
+const minMax = arr => [ Math.min(...arr), Math.max(...arr) ];
+
+Code 6:
+function minMax(arr){
+  var min = Math.min.apply(null, arr),
+      max = Math.max.apply(null, arr);
+  return [min, max];
+  
+Code 7:
+let minMax = arr => [Math.min(...arr), Math.max(...arr)];
+
+Code 8:
+function minMax(arr){
+  return [Math.min(...arr),Math.max(...arr)]; // fix me!
+}
+
+Code 9:
+function minMax(arr){
+  var minMax = [];
+  minMax[0] = Math.min(...arr);
+  minMax[1] = Math.max(...arr);
+  return minMax;
+}
+
+Code 10:
+let minMax =f= ([a,...A], m=a, M=a) => a ? f(A, a<m?a:m, a>M?a:M) : [m,M]
+
