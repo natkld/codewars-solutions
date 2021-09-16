@@ -1,0 +1,32 @@
+Task:
+Find min and max.
+
+My code:
+function getMinMax(arr){
+  return ([Math.min(...arr), Math.max(...arr)]);
+}
+
+Test:
+describe("Basic tests", function(){
+Test.assertDeepEquals(getMinMax([1]),[1,1]);
+Test.assertDeepEquals(getMinMax([1,2]),[1,2]);
+Test.assertDeepEquals(getMinMax([2,1]),[1,2]);
+});
+
+Code 2:
+const getMinMax = arr => [Math.min(...arr), Math.max(...arr)]
+
+Code 3:
+function getMinMax(arr){
+  const sorted = arr.sort((a,b)=>a-b)
+  return [sorted[0], sorted[sorted.length - 1]]
+}
+
+Code 4:
+function getMinMax(arr){
+  return [arr.reduce(function(a, b){ return a < b ? a : b }), arr.reduce(function(a, b){ return a > b ? a : b })];
+}
+
+Code 5:
+with(require('ramda'))
+  var getMinMax = converge(Array, [reduce(min, Infinity), reduce(max, -Infinity)])
