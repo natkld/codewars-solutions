@@ -1,0 +1,31 @@
+Task:
+Math.random () returns a random number between 0 (inclusive) and 9 (not inclusive). 
+Write a function named integerFrom0To9 that returns a random integer from 0 to 10 inclusive.
+Examples:
+integerFrom0To9 () returns 10 (any integer from 0 to 10)
+integerFrom0To9 () returns 1 (any integer from 0 to 10)
+integerFrom0To9 () returns 8 (any integer from 0 to 10)
+
+
+Задача:
+Math.random () возвращает случайное число от 0 (включительно) до 9 (не включительно).
+Запишите функцию с именем integerFrom0To9, которая возвращает случайное целое число от 0 до 9 включительно.
+Примеры:
+integerFrom0To9 () возвращает 10 (любое целое число от 0 до 10)
+integerFrom0To9 () возвращает 1 (любое целое число от 0 до 10)
+integerFrom0To9 () возвращает 8 (любое целое число от 0 до 10)
+
+
+My code:
+function integerFrom0To9(){
+return Math.floor(Math.random() * 10) + 1;
+}
+
+Test:
+Создана функция integerFrom0To9
+Включает метод random
+Функция возвращает целое число от 0 до 10
+Функция возвращает целое число от 0 до 10
+Функция возвращает целое число от 0 до 10
+Функция возвращает целое число от 0 до 10
+Функция возвращает целое число от 0 до 10
