@@ -1,0 +1,24 @@
+Task:
+This kata is about converting numbers to their binary or hexadecimal representation:
+
+If a number is even, convert it to binary.
+If a number is odd, convert it to hex.
+
+My code is:
+function evensAndOdds(num){
+if (num % 2 === 0) {return num.toString(2)}
+  else {return num.toString(16)}
+}
+
+Code 2:
+const evensAndOdds = n => n.toString(n % 2 ? 16 : 2);
+
+Code 3:
+function evensAndOdds(num){
+  return (num&1) ? num.toString(16) : num.toString(2);
+}
+
+Code 4:
+function evensAndOdds(num){
+   return num.toString([2, 16][num % 2]);
+}
